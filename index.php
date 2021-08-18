@@ -144,7 +144,7 @@ header("refresh:10;url=/");
                         <div class="flex flex-col space-y-5 py-2">
                             <h2 class="font-bold text-4xl">About Me</h2>
                             <span class="text-sm text-green-500 capitalize italic font-bold">
-                                28 years / Freelance
+                                23 years / Freelance
                             </span>
                             <p class="text-gray-200">
                                 Prolific, I am a full stack developer with a strong background in web development. I
