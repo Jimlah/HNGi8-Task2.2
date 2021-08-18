@@ -91,7 +91,7 @@ header("refresh:10;url=/");
                     </a>
 
                 </div>
-                <a href="#" class="hover:text-gray-500 self-end">
+                <a href="./file/resume.pdf" class="hover:text-gray-500 self-end" download="resume.pdf">
                     <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -103,7 +103,7 @@ header("refresh:10;url=/");
             <main class="h-full w-full overflow-y-auto">
                 <section id="home" class="flex sm:h-full w-full space-x-2 flex-col sm:flex-row">
                     <div class="w-full h-full sm:w-2/5 bg-center bg-cover bg-no-repeat"
-                        style="background-image:url('./img/img1.jpg')">
+                        style="background-image:url('./img/img2.jpg')">
                         <div class="w-full h-full flex flex-col items-center justify-end py-5 space-y-2">
                             <h2 class="text-xl sm:text-2xl md:text-3xl font-bold">Abdullahi Jimoh</h2>
                             <span class="text-sm text-green-500 font-semibold">Software Developer</span>
@@ -319,12 +319,17 @@ header("refresh:10;url=/");
     </div>
     <?php  if (isset($message)) {
         ?>
-    <div class="absolute top-0 right-0 bg-green-500 text-white font-semibold px-3 py-2">
+    <div
+        class="absolute top-0 right-0 text-white font-semibold px-3 py-2 <?= $message['status'] ? 'bg-green-500' : 'bg-red-500' ?>">
         <?= $message['message'] ?>
     </div>
 
     <?php
     } ?>
+
+    <script>
+    // click on button then download a file
+    </script>
 </body>
 
 </html>

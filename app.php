@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($firstname) || !isset($lastname) || !isset($email) || $email == "" || !isset($messages)) {
     
         $_COOKIE['alert'] = ['status' => false, 'message' => 'Message failed to send!'];
-        // var_dump($_SESSION['response']);
+
         header('Location: /');
     }
 
