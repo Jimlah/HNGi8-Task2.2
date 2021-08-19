@@ -107,9 +107,10 @@ header("refresh:10;url=/");
                 <section id="home" class="flex sm:h-full w-full space-x-2 flex-col sm:flex-row">
                     <div class="w-full h-full sm:w-2/5 bg-center bg-cover bg-no-repeat"
                         style="background-image:url('./img/img2.jpg')">
-                        <div class="w-full h-full flex flex-col items-center justify-end py-5 space-y-2">
+                        <div
+                            class="w-full h-full flex flex-col items-center justify-end py-5 space-y-2 bg-gray-700 bg-opacity-50">
                             <h2 class="text-xl sm:text-2xl md:text-3xl font-bold">Abdullahi Jimoh</h2>
-                            <span class="text-sm text-green-500 font-semibold">Software Developer</span>
+                            <span class="text-sm text-green-300 font-semibold">Software Developer</span>
                             <div class="flex items-center justify-center space-x-3">
                                 <a href="https://github.com/Jimlah" class="h-4 w-4 hover:text-gray-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
