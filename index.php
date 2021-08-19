@@ -15,29 +15,32 @@ header("Location: /");
 }
 
 
-// create email body and send it
-$transport = new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl');
-$transport->setUsername('dufmanigeria@gmail.com')
-->setPassword('Dufma12345');
-
-$mailer = new Swift_Mailer($transport);
-
-$message = new Swift_Message('Nessage from Resume');
-$message->setFrom(array($email => $firstname . ' ' . $lastname))
-->setTo(array('abdullahij951@gmail.com' => $firstname . ' ' . $lastname))
-->setBody('<p>' . $messages . '</p>')
-->setContentType('text/html');
-
-$result = $mailer->send($message);
-
-if ($result) {
-$message = ['status' => true, 'message' => 'Message sent successfully!'];
-} else {
-$message = ['status' => false, 'message' => 'Message failed to send!'];
-}
-
-
 $_COOKIE['alert'] = $message;
+
+// connect to sql database
+//mysql://bce53222cff0ca:130c66d6@us-cdbr-east-04.cleardb.com/heroku_b6dd10b8350df61?reconnect=true
+$db = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_b6dd10b8350df61', 'bce53222cff0ca', '130c66d6');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$db->exec("CREATE TABLE IF NOT EXISTS `messages` (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL
+    )");
+
+$stmt = $db->prepare("INSERT INTO `messages` (`firstname`, `lastname`, `email`, `message`) VALUES (:firstname, :lastname, :email, :message)");
+$stmt->bindParam(':firstname', $firstname);
+$stmt->bindParam(':lastname', $lastname);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':message', $messages);
+$stmt->execute();
+
+$db = null;
+
+$message = ['status' => true, 'message' => 'Message sent successfully!'];
+
 
 
 header("refresh:10;url=/");
